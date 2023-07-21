@@ -338,8 +338,8 @@
   </main>
   
   <style>
-    @import url("http://fonts.cdnfonts.com/css/times-new-roman");
-    @import url("http://fonts.cdnfonts.com/css/arial");
+    @import url("https://fonts.cdnfonts.com/css/times-new-roman");
+    @import url("https://fonts.cdnfonts.com/css/arial");
   
     @font-face {
       font-family: "Last Resort";
