@@ -5,6 +5,7 @@
       "Nišenaan",
       "bysep’yyk’",
       "cëëwmukum",
+      "homaa ha’ukadi",
       `"Nik myymaadi de sawisma!" 
   "Otanbodi de sawisma!"
   "Nik myymaadi de sawisma!"
@@ -78,10 +79,14 @@
         "ə": ["ə", "Ə"]
       }],
       "’": [[/(?<![ptkPTK])’/g], {
-        "ʔ": ["ʔ"]
+        "ʔ": ["ʔ"],
+        "ɂ": ["ɂ"],
+        "ˀ": ["ˀ"],
+        "Ɂ": ["Ɂ"],
       }],
       "aa": [[/([aeiouyë]){2}/ig], {
-        "aː": ["$1ː"]
+        "aː": ["$1ː"],
+        "a·": ["$1·"],
       }],
       "š": [["š", "Š"], {
         "sh": ["sh", "Sh"],
