@@ -348,7 +348,7 @@
   
     @font-face {
       font-family: "Last Resort";
-      src: url("/fonts/LastResortHE-Regular.ttf") format("truetype");
+      src: url("/fonts/LastResort-Regular.ttf") format("truetype");
     }
     @font-face {
       font-family: "Noto Sans";
