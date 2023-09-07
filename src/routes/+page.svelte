@@ -12,6 +12,7 @@
   "Otanbodi de sawisma!"
   "Nik myymaadi de sawisma!"
   "Otanbodi de sawisma!"`,
+    `Hace haj mynem pʼusso bycipʼice mym lajim peenim pʼusso moomaam kani kʼaatowineen amam oko mym lajim peenim yneemukum.`,
     `Kʼutʼim pitcaakʼam ham lajim peenim haj ukʼojmukum jamanna pittaatakʼa pakʼoji. Han haj kʼutʼim pitcaakʼam ba toojeen myji pamukum. Hace haj kʼutʼim pitcaakʼak ba cëëwmukum. Hace haj pitcaakʼam woomukum. Han haj woon ekʼojusan emukum sa tajim kʼawna. Han haj 
   "Nik myymaadi de sawisma!" 
   "Otanbodi de sawisma!"
