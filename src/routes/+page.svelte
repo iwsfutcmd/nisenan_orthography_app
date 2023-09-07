@@ -89,11 +89,13 @@
       ɂ: "\uE010 > ɂ;",
       ˀ: "\uE010 > ˀ;",
       Ɂ: "\uE010 > Ɂ;",
+      "7": "\uE010 > 7;",
     },
     aa: {
       aa: "\uE018 > \uE011\uE011; \uE019 > \uE012\uE012; \uE01A > \uE013\uE013; \uE01B > \uE014\uE014; \uE01C > \uE015\uE015; \uE01D > \uE016\uE016; \uE01E > \uE017\uE017;",
       aː: "\uE018 > \uE011ː; \uE019 > \uE012ː; \uE01A > \uE013ː; \uE01B > \uE014ː; \uE01C > \uE015ː; \uE01D > \uE016ː; \uE01E > \uE017ː;",
       "a·": "\uE018 > \uE011·; \uE019 > \uE012·; \uE01A > \uE013·; \uE01B > \uE014·; \uE01C > \uE015·; \uE01D > \uE016·; \uE01E > \uE017·;",
+      ā: "\uE018 > \uE011\u0304; \uE019 > \uE012\u0304; \uE01A > \uE013\u0304; \uE01B > \uE014\u0304; \uE01C > \uE015\u0304; \uE01D > \uE016\u0304; \uE01E > \uE017\u0304;",
     },
     š: {
       š: "\uE008 > š;",
@@ -103,6 +105,10 @@
       ŝ: "\uE008 > ŝ;",
       "ꟊ": "\uE008 > ꟊ;",
       ꞩ: "\uE008 > ꞩ;",
+    },
+    aj: {
+      aj: "",
+      ai: "[\uE011-\uE01E] { \uE00B } [^\uE011-\uE01E] > i;",
     },
     p: {
       p: "\uE000 > p;",
@@ -147,6 +153,7 @@
 
   const keyOrder = [
     "aa",
+    "aj",
     "ʼ",
     "pʼ",
     "tʼ",
@@ -235,8 +242,9 @@
     let rules = "::NFD;";
     keyOrder.forEach((key) => {
       rules += orthographyOptions[key][currentOrthography[key]];
-      if (key === "aa") rules += "::Null;";
+      if (key === "aa" || key === "aj") rules += "::Null;";
     });
+    rules += "::NFC;";
     return rules;
   };
 
