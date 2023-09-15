@@ -23,8 +23,6 @@
 
   let customText = "Nisenaan";
 
-  // let noCaps = false;
-
   const orthographyOptions: { [key: string]: { [key: string]: string } } = {
     pʼ: {
       pʼ: "\uE001 > pʼ;",
@@ -89,7 +87,6 @@
       ʔ: "\uE010 > ʔ;",
       ɂ: "\uE010 > ɂ;",
       ˀ: "\uE010 > ˀ;",
-      Ɂ: "\uE010 > Ɂ;",
       "7": "\uE010 > 7;",
     },
     aa: {
@@ -223,6 +220,7 @@
   let fontItalic: boolean;
   let fontUnderline: boolean;
   let fontSmallCaps: boolean;
+  let allCaps = false;
 
   const resetFontOptions = () => {
     fontSize = fontDefaults.size;
@@ -262,12 +260,14 @@
   $: {
     const rules = buildRules(currentOrthography);
     if (transliteratorsRegistered)
-      result = [customText, ...baseWords].map((text) =>
-        transliterateFromRules(
-          transliterate("Eatough", "InterNisenan", text),
-          rules
+      result = [customText, ...baseWords]
+        .map((text) =>
+          transliterateFromRules(
+            transliterate("Eatough", "InterNisenan", text),
+            rules
+          )
         )
-      );
+        .map((text) => (allCaps ? text.toUpperCase() : text));
   }
 
   let transliterate = (from: string, to: string, text: string) => "";
@@ -281,14 +281,14 @@
   });
 </script>
 
-<!-- <svelte:window
+<svelte:window
   on:keydown={(e) => {
     if (e.key === "Shift") shiftPressed = true;
   }}
   on:keyup={(e) => {
     if (e.key === "Shift") shiftPressed = false;
   }}
-/> -->
+/>
 
 <main>
   <div id="options-bar">
@@ -317,15 +317,6 @@
             </form>
           {/if}
         {/each}
-        <!-- <form class="orthography-option">
-          <input
-            type="checkbox"
-            bind:checked={noCaps}
-            name="all-caps"
-            id="all-caps"
-          />
-          <label for="all-caps">{noCaps ? "abc" : "Abc"}</label>
-        </form> -->
       </div>
     {/if}
     {#if menusOpen.includes("customText")}
@@ -382,6 +373,10 @@
           <label style="flex-direction: row;">
             <input type="checkbox" bind:checked={fontSmallCaps} />
             Small Caps
+          </label>
+          <label style="flex-direction: row;">
+            <input type="checkbox" bind:checked={allCaps} />
+            All Caps
           </label>
         </form>
         <button on:click={resetFontOptions}>Reset</button>
