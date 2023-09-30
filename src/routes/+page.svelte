@@ -226,7 +226,7 @@
     // "Noto Sans Osage",
     "Noto Sans",
     "Noto Serif",
-    "Noto Sans Display",
+    "Noto Sans Mono",
     "Noto Serif Display",
     "Arial",
     "Times New Roman",
@@ -239,7 +239,7 @@
     size: 12,
     weight: 400,
     width: 100,
-    contrast: 0,
+    // contrast: 0,
     italic: false,
     underline: false,
     smallCaps: false,
@@ -247,7 +247,7 @@
   let fontSize: number;
   let fontWeight: number;
   let fontWidth: number;
-  let fontContrast: number;
+  // let fontContrast: number;
   let fontItalic: boolean;
   let fontUnderline: boolean;
   let fontSmallCaps: boolean;
@@ -257,7 +257,7 @@
     fontSize = fontDefaults.size;
     fontWeight = fontDefaults.weight;
     fontWidth = fontDefaults.width;
-    fontContrast = fontDefaults.contrast;
+    // fontContrast = fontDefaults.contrast;
     fontItalic = fontDefaults.italic;
     fontUnderline = fontDefaults.underline;
     fontSmallCaps = fontDefaults.smallCaps;
@@ -389,10 +389,10 @@
               step="0.5"
             />
           </label>
-          <label>
+          <!-- <label>
             Font Contrast: {fontContrast}
             <input type="range" bind:value={fontContrast} min="0" max="100" />
-          </label>
+          </label> -->
           <label style="flex-direction: row;">
             <input type="checkbox" bind:checked={fontItalic} />
             Italic
@@ -422,8 +422,7 @@
         <summary>{font}</summary>
         <div
           style:font-size="{fontSize}pt"
-          style:font-variation-settings="'wght' {fontWeight}, 'wdth' {fontWidth},
-          'CTGR' {fontContrast}"
+          style:font-variation-settings="'wght' {fontWeight}, 'wdth' {fontWidth}"
           style:font-style={fontItalic ? "italic" : ""}
           style:font-weight={fontWeight}
           style:text-decoration={fontUnderline ? "underline" : ""}
@@ -448,39 +447,36 @@
   }
   @font-face {
     font-family: "Noto Sans";
-    src: url("/fonts/NotoSans-VF.ttf") format("truetype-variations");
+    src: url("/fonts/NotoSans[wdth,wght].ttf") format("truetype-variations");
+  }
+  @font-face {
+    font-family: "Noto Sans Mono";
+    src: url("/fonts/NotoSansMono[wdth,wght].ttf") format("truetype-variations");
   }
   @font-face {
     font-family: "Noto Serif";
-    src: url("/fonts/NotoSerif-VF.ttf") format("truetype-variations");
-  }
-  @font-face {
-    font-family: "Noto Sans Display";
-    src: url("/fonts/NotoSansDisplay-VF.ttf") format("truetype-variations");
+    src: url("/fonts/NotoSerif[wdth,wght].ttf") format("truetype-variations");
   }
   @font-face {
     font-family: "Noto Serif Display";
-    src: url("/fonts/NotoSerifDisplay-VF.ttf") format("truetype-variations");
+    src: url("/fonts/NotoSerifDisplay[wdth,wght].ttf")
+      format("truetype-variations");
   }
   @font-face {
     font-family: "Noto Sans";
-    src: url("/fonts/NotoSans-Italic-VF.ttf") format("truetype-variations");
+    src: url("/fonts/NotoSans-Italic[wdth,wght].ttf")
+      format("truetype-variations");
     font-style: italic;
   }
   @font-face {
     font-family: "Noto Serif";
-    src: url("/fonts/NotoSerif-Italic-VF.ttf") format("truetype-variations");
-    font-style: italic;
-  }
-  @font-face {
-    font-family: "Noto Sans Display";
-    src: url("/fonts/NotoSansDisplay-Italic-VF.ttf")
+    src: url("/fonts/NotoSerif-Italic[wdth,wght].ttf")
       format("truetype-variations");
     font-style: italic;
   }
   @font-face {
     font-family: "Noto Serif Display";
-    src: url("/fonts/NotoSerifDisplay-Italic-VF.ttf")
+    src: url("/fonts/NotoSerifDisplay-Italic[wdth,wght].ttf")
       format("truetype-variations");
     font-style: italic;
   }
