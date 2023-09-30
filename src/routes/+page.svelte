@@ -492,63 +492,63 @@
 
   @font-face {
     font-family: "Cardo";
-    src: url("fonts/Cardo-Regular.ttf") format("truetype");
+    src: url("/fonts/Cardo-Regular.ttf") format("truetype");
   }
   @font-face {
     font-family: "Cardo";
-    src: url("fonts/Cardo-Italic.ttf") format("truetype");
+    src: url("/fonts/Cardo-Italic.ttf") format("truetype");
     font-style: italic;
   }
 
   @font-face {
     font-family: "Cardo";
-    src: url("fonts/Cardo-Bold.ttf") format("truetype");
+    src: url("/fonts/Cardo-Bold.ttf") format("truetype");
     font-weight: bold;
   }
 
   @font-face {
     font-family: "Montserrat";
-    src: url("fonts/Montserrat-VariableFont_wght.ttf")
+    src: url("/fonts/Montserrat-VariableFont_wght.ttf")
       format("truetype-variations");
   }
   @font-face {
     font-family: "Montserrat";
-    src: url("fonts/Montserrat-Italic-VariableFont_wght.ttf")
+    src: url("/fonts/Montserrat-Italic-VariableFont_wght.ttf")
       format("truetype-variations");
     font-style: italic;
   }
 
   @font-face {
     font-family: "PP Monument Extended";
-    src: url("fonts/PPMonumentExtended-Regular.otf") format("opentype");
+    src: url("/fonts/PPMonumentExtended-Regular.otf") format("opentype");
   }
 
   @font-face {
     font-family: "PP Monument Extended";
-    src: url("fonts/PPMonumentExtended-Light.otf") format("truetype");
+    src: url("/fonts/PPMonumentExtended-Light.otf") format("truetype");
     font-weight: 300;
   }
   @font-face {
     font-family: "PP Monument Extended";
-    src: url("fonts/PPMonumentExtended-Black.otf") format("truetype");
+    src: url("/fonts/PPMonumentExtended-Black.otf") format("truetype");
     font-weight: 900;
   }
 
   @font-face {
     font-family: "PP Monument Extended";
-    src: url("fonts/PPMonumentExtended-RegularItalic.otf") format("opentype");
+    src: url("/fonts/PPMonumentExtended-RegularItalic.otf") format("opentype");
     font-style: italic;
   }
 
   @font-face {
     font-family: "PP Monument Extended";
-    src: url("fonts/PPMonumentExtended-LightItalic.otf") format("truetype");
+    src: url("/fonts/PPMonumentExtended-LightItalic.otf") format("truetype");
     font-weight: 300;
     font-style: italic;
   }
   @font-face {
     font-family: "PP Monument Extended";
-    src: url("fonts/PPMonumentExtended-BlackItalic.otf") format("truetype");
+    src: url("/fonts/PPMonumentExtended-BlackItalic.otf") format("truetype");
     font-weight: 900;
     font-style: italic;
   }
