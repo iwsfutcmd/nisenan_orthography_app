@@ -5,6 +5,7 @@
 
   const baseWords: string[] = [
     "Nišenaan",
+    "ʼuba seo",
     "bysepʼyykʼ",
     "cëëwmukum",
     "homaa haʼukadi",
@@ -429,8 +430,7 @@
           style:font-variant={fontSmallCaps ? "small-caps" : ""}
         >
           {#each result as output}
-            {output}
-            <hr />
+            <div class="result">{output}</div>
           {/each}
         </div>
       </details>
@@ -631,10 +631,22 @@
   }
   #output {
     overflow: scroll;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(512px, 100%), 1fr));
   }
+
+  summary {
+    /* border: 1px solid black; */
+  }
+
   .results {
+    /* white-space: pre-wrap; */
+    /* margin-inline-start: 8px; */
+  }
+  .results > div {
     white-space: pre-wrap;
-    margin-inline-start: 8px;
-    inline-size: fit-content;
+  }
+  .result {
+    border-block-end: 1px solid black;
   }
 </style>
