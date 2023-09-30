@@ -417,7 +417,7 @@
   <!-- svelte-ignore a11y-click-events-have-key-events -->
   <div id="output" on:click={() => (menusOpen = [])}>
     {#each fonts as font}
-      <details class="results" style:font-family="'{font}', 'Last Resort'" open>
+      <details class="results" style:font-family="'{font}', 'Last Resort'">
         <summary>{font}</summary>
         <div
           style:font-size="{fontSize}pt"
