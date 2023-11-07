@@ -115,6 +115,7 @@
       ŝ: "\uE008 > ŝ;",
       "ꟊ": "\uE008 > ꟊ;",
       ꞩ: "\uE008 > ꞩ;",
+      ṡ: "\uE008 > ṡ;",
     },
     // č: {
     //   č: "\uE020 > č;",
@@ -220,6 +221,20 @@
   );
 
   const complexKeys = ["pʼ", "tʼ", "kʼ", "cʼ", "š", "ë", "ʼ"];
+  const firstInterNisenan = 0xe000;
+  const lastInterNisenan = 0xe021;
+  const asciiInterNisenanRx = new RegExp(
+    `^\[a-z${String.fromCodePoint(firstInterNisenan)}-${String.fromCodePoint(
+      lastInterNisenan
+    )}\]+$`,
+    "gu"
+  );
+
+  console.log(asciiInterNisenanRx);
+  const interNisenan = Array.from(
+    { length: lastInterNisenan - firstInterNisenan + 1 },
+    (_, i) => String.fromCodePoint(firstInterNisenan + i)
+  );
 
   const fonts = [
     // "Wazhazhe",
@@ -233,6 +248,8 @@
     "Cardo",
     "Montserrat",
     "PP Monument Extended",
+    "Open Sans",
+    "Oswald",
   ];
 
   const fontDefaults = {
@@ -288,8 +305,10 @@
 
   let shiftPressed = false;
 
+  let rules = "";
+
   $: {
-    const rules = buildRules(currentOrthography);
+    // rules = buildRules(currentOrthography);
     if (transliteratorsRegistered)
       result = [customText, ...baseWords]
         .map((text) =>
@@ -309,6 +328,7 @@
     ({ transliterate, transliterateFromRules, registerTransliterators } =
       await import("$lib/transliterate"));
     registerTransliterators().then(() => (transliteratorsRegistered = true));
+    rules = buildRules(currentOrthography);
   });
 </script>
 
@@ -342,6 +362,7 @@
                   name={inputKey}
                   id={inputKey + "-" + outputKey}
                   value={outputKey}
+                  on:change={() => (rules = buildRules(currentOrthography))}
                 />
                 <label for={inputKey + "-" + outputKey}>{outputKey}</label>
               {/each}
@@ -354,7 +375,10 @@
       <div transition:slide id="custom-text">
         <textarea id="custom-text-area" bind:value={customText} />
         <div>
-          {#each complexKeys as key}
+          {#each interNisenan
+            .map((cp) => transliterateFromRules(cp, rules))
+            .filter((key) => !key.match(asciiInterNisenanRx))
+            .sort() as key}
             <button
               on:click={() => {
                 customText =
@@ -481,6 +505,23 @@
     font-style: italic;
   }
 
+  @font-face {
+    font-family: "Open Sans";
+    src: url("/fonts/OpenSans-VariableFont_wdth,wght.ttf")
+      format("truetype-variations");
+  }
+
+  @font-face {
+    font-family: "Open Sans";
+    src: url("/fonts/OpenSans-Italic-VariableFont_wdth,wght.ttf")
+      format("truetype-variations");
+    font-style: italic;
+  }
+  @font-face {
+    font-family: "Oswald";
+    src: url("/fonts/Oswald-VariableFont_wght.ttf")
+      format("truetype-variations");
+  }
   @font-face {
     font-family: "Wazhazhe";
     src: url("/fonts/Wazhazhe.ttf") format("truetype");
@@ -621,6 +662,7 @@
     text-align: center;
     min-inline-size: 24px;
     border-radius: 4pt;
+    user-select: none;
   }
   input[type="radio"]:checked + * {
     background-color: lightblue;

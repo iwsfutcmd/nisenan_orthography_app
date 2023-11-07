@@ -97,13 +97,13 @@ std::string transliterateFromRules(std::string text, std::string rules)
     }
     else
     {
+        std::cout << "Transliterator registered" << std::endl;
         std::string output = "";
         auto uoutput = UnicodeString(text.c_str());
         t->transliterate(uoutput);
         uoutput.toUTF8String(output);
         return output;
     }
-
 }
 
 void getAvailableIDs()
@@ -119,7 +119,6 @@ void getAvailableIDs()
         availableId = availableIds->snext(status);
     }
 }
-
 
 EMSCRIPTEN_BINDINGS(transliterator)
 {
