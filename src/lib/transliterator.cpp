@@ -84,20 +84,22 @@ std::string transliterate(std::string text, std::string id)
     return output;
 }
 
-std::string transliterateFromRules(std::string text, std::string rules)
+std::string transliterateFromRules(std::string text, std::string rules, std::string hash)
 {
     auto urules = UnicodeString(rules.c_str());
+    auto uhash = UnicodeString(hash.c_str());
     UParseError pError;
     UErrorCode status = U_ZERO_ERROR;
-    Transliterator *t = Transliterator::createFromRules("d043ee511848f159595e1ba250a0f1d8", urules, UTRANS_FORWARD, pError, status);
+    Transliterator *t = Transliterator::createFromRules(uhash, urules, UTRANS_FORWARD, pError, status);
     if (U_FAILURE(status))
     {
-        printRegistrationError("d043ee511848f159595e1ba250a0f1d8", pError, status);
+        printRegistrationError(hash, pError, status);
         return "";
     }
     else
     {
-        std::cout << "Transliterator registered" << std::endl;
+        // std::cout << "Transliterator registered" << std::endl;
+        Transliterator::registerInstance(t);
         std::string output = "";
         auto uoutput = UnicodeString(text.c_str());
         t->transliterate(uoutput);

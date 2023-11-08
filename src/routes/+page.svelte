@@ -230,7 +230,7 @@
     "gu"
   );
 
-  console.log(asciiInterNisenanRx);
+  // console.log(asciiInterNisenanRx);
   const interNisenan = Array.from(
     { length: lastInterNisenan - firstInterNisenan + 1 },
     (_, i) => String.fromCodePoint(firstInterNisenan + i)
